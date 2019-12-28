@@ -4,10 +4,11 @@
 
 function findMedianSortedArrays(num1, num2){
   let newSortedArr = (num1.concat(num2)).sort();
+
   let med;
+  
   if (newSortedArr.length % 2 !== 0) { //odd length
     med = Math.floor(newSortedArr.length / 2);
-    console.log(med)
     return newSortedArr[med];
   } else { //even length
     med = newSortedArr.length / 2;
@@ -23,9 +24,25 @@ function findMedianSortedArrays(num1, num2){
 // nums2 = [2]
 // Expected Output = 2.0
 //Set 2
-nums1 = [1, 2]
-nums2 = [3, 4]
+// nums1 = [1, 2]
+// nums2 = [3, 4]
 // Expected Output = 2.5
+//Set 3
+// nums1 = [3]
+// nums2 = [-2, -1]
+// Expected Output = -1
 
-console.log(findMedianSortedArrays(nums1, nums2))
+function assert( actual, expected, testname){
+  if (actual !== expected){
+    return console.log( `Failed! + ${testname}`)
+  } else {
+    return console.log( "Passed!")
+  }
+}
+
+assert(findMedianSortedArrays([3], [-2, -1]), -1, "Will properly sort and find median of a negative array")
+assert(findMedianSortedArrays([1,3], [2]), 2.0, "Will find the median when array length is odd")
+assert(findMedianSortedArrays([1,2], [3, 4]), 2.5, "Will find the median when array length is even")
+
+// console.log(findMedianSortedArrays(nums1, nums2))
 
