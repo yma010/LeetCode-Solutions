@@ -3,34 +3,28 @@
 // You may assume nums1 and nums2 cannot be both empty.
 
 function findMedianSortedArrays(num1, num2){
-  let newSortedArr = (num1.concat(num2)).sort();
+  let newSortedArr = (num1.concat(num2)).sort((a, b) => a - b);
 
   let med;
   
   if (newSortedArr.length % 2 !== 0) { //odd length
+
     med = Math.floor(newSortedArr.length / 2);
+
     return newSortedArr[med];
   } else { //even length
+
     med = newSortedArr.length / 2;
+
     let left = newSortedArr[med];
     let right = newSortedArr[med - 1];
-    med = (left + right) / 2
-    return med
+
+    med = (left + right) / 2;
+
+    return med;
   }
 }
 
-//Set 1
-// nums1 = [1, 3]
-// nums2 = [2]
-// Expected Output = 2.0
-//Set 2
-// nums1 = [1, 2]
-// nums2 = [3, 4]
-// Expected Output = 2.5
-//Set 3
-// nums1 = [3]
-// nums2 = [-2, -1]
-// Expected Output = -1
 
 function assert( actual, expected, testname){
   if (actual !== expected){
