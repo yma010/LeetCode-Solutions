@@ -8,8 +8,8 @@ function maxArea(height) {
         };
     }
 
-    let x = max - last;
-    let y = max - x;
+    let x = Math.abs(max - last);
+    let y = Math.abs(max - x);
 
     let area = y * last;
 
@@ -17,5 +17,7 @@ function maxArea(height) {
 }
 
 
-height =  [1, 8, 6, 2, 5, 4, 8, 3, 7] //Output: 49
+// height =  [1, 8, 6, 2, 5, 4, 8, 3, 7] //Output: 49
+height = [1, 2]; //Output: 1
+
 console.log(maxArea(height));
